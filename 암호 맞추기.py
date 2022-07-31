@@ -82,3 +82,4 @@ while game_re == True:
         game_re = True
     elif Q == "아니요":
         game_re = False
+        
