@@ -74,7 +74,7 @@ while game_re == True:
             game_win = True
 
         else:
-            print("[ " + a+b+c+d+e + " ]" + " "*5 + f"{try_n}번 남음")
+            print("[ " + a+b+c+d+e + " ]" + " "*3 + f"{try_n}번 남음")
             print("")
 
     Q = input("다시하겠습니까? (네, 아니요) : ")
