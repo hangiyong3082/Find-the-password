@@ -17,9 +17,9 @@ while game_re == True:
     if dif == "쉬움":
         try_n = 12
     elif dif == "중간":
-        try_n = 9
+        try_n = 8
     elif dif == "어려움":
-        try_n = 7
+        try_n = 6
 
     print("\n암호 다섯자리를 맞추세요\n맞춘 숫자는 표시됩니다")
     print(f"기회는 {try_n}번 입니다\n ")
