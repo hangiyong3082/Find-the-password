@@ -2,27 +2,40 @@ import random
 
 game_re = True
 
+#명령어 설정
+easy = "E"
+medium = "M"
+hard = "H"
+yes = "Y"
+no = "N"
+
 while game_re == True:
     # 암호 설정
-    A = str(random.randrange(1,9))
-    B = str(random.randrange(1,9))
-    C = str(random.randrange(1,9))
-    D = str(random.randrange(1,9))
-    E = str(random.randrange(1,9))
+    a = random.randrange(0,9)
+    b = random.randrange(0,9)
+    c = random.randrange(0,9)
+    d = random.randrange(0,9)
+    e = random.randrange(0,9)
 
     game = 0
     game_win = False
 
-    dif = input("난이도를 고르세요 (쉬움, 중간, 어려움) : ")
-    if dif == "쉬움":
+    dif = input(f"난이도를 고르세요 ({easy}, {medium}, {hard}) : ")
+    if dif == easy or easy.lower():
         try_n = 12
-    elif dif == "중간":
+    elif dif == medium or medium.lower():
         try_n = 8
-    elif dif == "어려움":
+    elif dif == hard or hard.lower():
         try_n = 6
 
-    print("\n암호 다섯자리를 맞추세요\n맞춘 숫자는 표시됩니다")
+    print(f"\n암호 다섯자리를 맞추세요\n맞춘 숫자는 표시됩니다\n \n각 자리의 숫자들을 모두 더한값은 {a+b+c+d+e} 입니다")
     print(f"기회는 {try_n}번 입니다\n ")
+
+    A = str(a)
+    B = str(b)
+    C = str(c)
+    D = str(d)
+    E = str(e)
 
     while game_win == False: 
         game = 0
@@ -74,12 +87,12 @@ while game_re == True:
         else:
             print("[ " + a+b+c+d+e + " ]" + " "*3 + f"{try_n}번 남음\n ")
 
-    Q = input("다시하겠습니까? (네, 아니요) : ")
-    if Q == "네":
+    Q = input(f"다시하겠습니까? ({yes}, {no}) : ")
+    if Q == yes or yes.lower():
         r = 50
         while r != 0:
             print("")
             r -= 1
         game_re = True
-    elif Q == "아니요":
+    elif Q == no or no.lower():
         game_re = False
