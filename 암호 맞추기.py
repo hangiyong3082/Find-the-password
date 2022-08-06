@@ -21,11 +21,11 @@ while game_re == True:
     game_win = False
 
     dif = input(f"난이도를 고르세요 ({easy}, {medium}, {hard}) : ")
-    if dif == easy or easy.lower():
+    if dif == easy or dif == easy.lower():
         try_n = 12
-    elif dif == medium or medium.lower():
+    elif dif == medium or dif == medium.lower():
         try_n = 8
-    elif dif == hard or hard.lower():
+    elif dif == hard or dif == hard.lower():
         try_n = 6
 
     print(f"\n암호 다섯자리를 맞추세요\n맞춘 숫자는 표시됩니다\n \n각 자리의 숫자들을 모두 더한값은 {a+b+c+d+e} 입니다")
@@ -88,11 +88,11 @@ while game_re == True:
             print("[ " + a+b+c+d+e + " ]" + " "*3 + f"{try_n}번 남음\n ")
 
     Q = input(f"다시하겠습니까? ({yes}, {no}) : ")
-    if Q == yes or yes.lower():
+    if Q == yes or Q == yes.lower():
         r = 50
         while r != 0:
             print("")
             r -= 1
         game_re = True
-    elif Q == no or no.lower():
+    elif Q == no or Q == no.lower():
         game_re = False
