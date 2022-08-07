@@ -1,7 +1,6 @@
 import random
 
 game_re = True
-print("안녕하세요")
 
 #명령어 설정
 easy = "E"
