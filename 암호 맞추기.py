@@ -12,6 +12,7 @@ def input_letter(I, i):
     return I == i or I == i.lower()
 main_number = ' '.join("0123456789").split( )
 
+#메인 게임
 while game_re == True:
     # 암호 설정
     a = random.randrange(0,9)
@@ -20,7 +21,7 @@ while game_re == True:
     d = random.randrange(0,9)
     e = random.randrange(0,9)
 
-    game = 0
+    #변수
     game_win = False
 
     #난이도 고르기
@@ -29,12 +30,15 @@ while game_re == True:
         dif = input(f"난이도를 고르세요 ({easy}, {medium}, {hard}) : ")
         if input_letter(dif, easy):
             try_n = 12
+            print("\n난이도:쉬움")
             enter_dif = True
         elif input_letter(dif, medium):
             try_n = 8
+            print("\n난이도:중간")
             enter_dif = True
         elif input_letter(dif, hard):
             try_n = 6
+            print("\n난이도:어려움")
             enter_dif = True
         else:
             print("(!)입력 오류")
@@ -54,7 +58,6 @@ while game_re == True:
     D = str(d)
     E = str(e)
 
-    #메인 게임
     while game_win == False: 
         #초기화
         game = 0
