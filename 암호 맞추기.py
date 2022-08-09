@@ -113,19 +113,19 @@ while game_re == True:
             print("[ " + a+b+c+d+e + " ]" + " "*3 + f"{try_n}번 남음\n ")
 
     #게임 재시작 여부
-    Q_ = None
-    while Q_ != True:
+    enter_Q = None
+    while enter_Q != True:
         Q = input(f"다시하겠습니까? ({yes}, {no}) : ")
         if input_letter(Q, yes):
             r = 50
-            Q_ = True
+            enter_Q = True
             while r != 0:
                 print("")
                 r -= 1
             game_re = True
         elif input_letter(Q, no):
-            Q_ = True
+            enter_Q = True
             game_re = False
         else:
             print("(!)입력 오류")
-            Q_ = False
+            enter_Q = False
