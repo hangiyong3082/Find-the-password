@@ -1,5 +1,4 @@
 import random
-from tokenize import Number
 
 game_re = True
 
@@ -11,7 +10,7 @@ yes = "Y"
 no = "N"
 def input_letter(I, i):
     return I == i or I == i.lower()
-Number = ' '.join("0123456789").split( )
+main_number = ' '.join("0123456789").split( )
 
 while game_re == True:
     # 암호 설정
@@ -67,7 +66,7 @@ while game_re == True:
             code = input("암호를 맞추세요 : ")
             if len(code) == 5:
                 for cn in range(0,5):
-                    if code[cn] in Number:
+                    if code[cn] in main_number:
                         c_N += 1                
                 if c_N == 5:
                     enter_code = True
