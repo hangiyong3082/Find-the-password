@@ -1,4 +1,5 @@
 import random
+from tokenize import Number
 
 game_re = True
 
@@ -10,6 +11,7 @@ yes = "Y"
 no = "N"
 def input_letter(I, i):
     return I == i or I == i.lower()
+Number = ' '.join("0123456789").split( )
 
 while game_re == True:
     # 암호 설정
@@ -46,22 +48,32 @@ while game_re == True:
     print(f"\n각 자리의 숫자들을 모두 더한값은 {a+b+c+d+e} 입니다")
     print(f"기회는 {try_n}번 입니다\n ")
 
+    #암호를 문자열로 변환
     A = str(a)
     B = str(b)
     C = str(c)
     D = str(d)
     E = str(e)
 
+    #메인 게임
     while game_win == False: 
         #초기화
         game = 0
 
         #암호 입력
         enter_code = None
+        c_N = 0
         while enter_code != True:
             code = input("암호를 맞추세요 : ")
             if len(code) == 5:
-                enter_code = True
+                for cn in range(0,5):
+                    if code[cn] in Number:
+                        c_N += 1                
+                if c_N == 5:
+                    enter_code = True
+                else:
+                    print("(!)다섯자리 숫자를 입력하세요")
+                    enter_code = False
             else:
                 print("(!)다섯자리 숫자를 입력하세요")
                 enter_code = False
