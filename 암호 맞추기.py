@@ -8,6 +8,8 @@ medium = "M"
 hard = "H"
 yes = "Y"
 no = "N"
+def input_letter(I, i):
+    return I == i or I == i.lower()
 
 while game_re == True:
     # 암호 설정
@@ -20,15 +22,28 @@ while game_re == True:
     game = 0
     game_win = False
 
-    dif = input(f"난이도를 고르세요 ({easy}, {medium}, {hard}) : ")
-    if dif == easy or dif == easy.lower():
-        try_n = 12
-    elif dif == medium or dif == medium.lower():
-        try_n = 8
-    elif dif == hard or dif == hard.lower():
-        try_n = 6
+    #난이도 고르기
+    enter_dif = None
+    while enter_dif != True:
+        dif = input(f"난이도를 고르세요 ({easy}, {medium}, {hard}) : ")
+        if input_letter(dif, easy):
+            try_n = 12
+            enter_dif = True
+        elif input_letter(dif, medium):
+            try_n = 8
+            enter_dif = True
+        elif input_letter(dif, hard):
+            try_n = 6
+            enter_dif = True
+        else:
+            print("(!)입력 오류")
+            enter_dif = False
 
-    print(f"\n암호 다섯자리를 맞추세요\n맞춘 숫자는 표시됩니다\n \n각 자리의 숫자들을 모두 더한값은 {a+b+c+d+e} 입니다")
+    #설명
+    print("-"*50)
+    print(f"\n암호 다섯자리를 맞추세요\n맞춘 숫자는 표시됩니다\n")
+    print("-"*50)
+    print(f"\n각 자리의 숫자들을 모두 더한값은 {a+b+c+d+e} 입니다")
     print(f"기회는 {try_n}번 입니다\n ")
 
     A = str(a)
@@ -38,8 +53,18 @@ while game_re == True:
     E = str(e)
 
     while game_win == False: 
+        #초기화
         game = 0
-        code = input("암호를 맞추세요 : ")
+
+        #암호 입력
+        enter_code = None
+        while enter_code != True:
+            code = input("암호를 맞추세요 : ")
+            if len(code) == 5:
+                enter_code = True
+            else:
+                print("(!)다섯자리 숫자를 입력하세요")
+                enter_code = False
 
         # 입력한 암호 분석
         if code[0] == A:
@@ -72,7 +97,7 @@ while game_re == True:
         else:
             e = "X"
 
-        #시도 가능 횟수
+        #시도 가능 횟수 감소
         try_n -= 1
 
         #분석 결과
@@ -87,12 +112,20 @@ while game_re == True:
         else:
             print("[ " + a+b+c+d+e + " ]" + " "*3 + f"{try_n}번 남음\n ")
 
-    Q = input(f"다시하겠습니까? ({yes}, {no}) : ")
-    if Q == yes or Q == yes.lower():
-        r = 50
-        while r != 0:
-            print("")
-            r -= 1
-        game_re = True
-    elif Q == no or Q == no.lower():
-        game_re = False
+    #게임 재시작 여부
+    Q_ = None
+    while Q_ != True:
+        Q = input(f"다시하겠습니까? ({yes}, {no}) : ")
+        if input_letter(Q, yes):
+            r = 50
+            Q_ = True
+            while r != 0:
+                print("")
+                r -= 1
+            game_re = True
+        elif input_letter(Q, no):
+            Q_ = True
+            game_re = False
+        else:
+            print("(!)입력 오류")
+            Q_ = False
